@@ -12,10 +12,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # --- CONFIG ---
-VAPI_API_KEY = "***REMOVED***"
-VAPI_ASSISTANT_ID = "***REMOVED***"
-VAPI_PHONE_NUMBER_ID = "***REMOVED***"
-USER_PHONE_NUMBER = "***REMOVED***"
+VAPI_API_KEY = "XXXXXXXXXXXX"
+VAPI_ASSISTANT_ID = "XXXXXXXXXXXX"
+VAPI_PHONE_NUMBER_ID = "XXXXXXXXXXXX"
+USER_PHONE_NUMBER = "+XXXXXXXXXXXX"
 
 def trigger_voice_call(symbol, price, score, reason, risk_level, user_phone_number):
     url = "https://api.vapi.ai/call"
