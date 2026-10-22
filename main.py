@@ -2,8 +2,13 @@ from fastapi import FastAPI, Request, Response
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import os
+
 import requests
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -12,9 +17,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # --- CONFIG ---
-VAPI_API_KEY = "XXXXXXXXXXXX"
-VAPI_ASSISTANT_ID = "XXXXXXXXXXXX"
-VAPI_PHONE_NUMBER_ID = "XXXXXXXXXXXX"
+# Credentials are read from the environment (see .env.example); never hard-code them.
+VAPI_API_KEY = os.environ.get("VAPI_API_KEY", "")
+VAPI_ASSISTANT_ID = os.environ.get("VAPI_ASSISTANT_ID", "")
+VAPI_PHONE_NUMBER_ID = os.environ.get("VAPI_PHONE_NUMBER_ID", "")
 USER_PHONE_NUMBER = "+XXXXXXXXXXXX"
 
 def trigger_voice_call(symbol, price, score, reason, risk_level, user_phone_number):
