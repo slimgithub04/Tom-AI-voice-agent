@@ -68,7 +68,7 @@ VAPI_PHONE_NUMBER_ID=<your_phone_number_id>
 USER_PHONE_NUMBER=+1234567890
 ```
 
-> **NOTE:** `main.py` currently contains hard-coded API keys and IDs for demonstration. For production use, replace these with environment variables, a secret manager, or read from a `.env` file.
+> **NOTE:** `main.py` reads these values from the environment (or from `.env` via `python-dotenv`). Never commit real keys.
 
 You can set your environment variables like this (PowerShell example):
 
@@ -79,7 +79,6 @@ $env:VAPI_PHONE_NUMBER_ID = "<your_phone_number_id>"
 $env:USER_PHONE_NUMBER = "+1234567890"
 ```
 
-Then update `main.py` to read from `os.environ` instead of hardcoding values.
 
 ---
 
